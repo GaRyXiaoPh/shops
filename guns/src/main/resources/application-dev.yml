@@ -4,9 +4,9 @@ server:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://47.88.221.186:8066/miners_mall?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    url: jdbc:mysql://127.0.0.1:8066/miners_mall?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
     username: root
-    password: '%TGBHU*nm123'
+    password: ''
     filters: wall,mergeStat
     db-name: miners_mall #用来搜集数据库的所有表
 
