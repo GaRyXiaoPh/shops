@@ -12,10 +12,10 @@ spring:
     #  connection-test-query: SELECT 1
 
   #redis:
-   # host: 47.74.145.76
+   # host: 
    # database: 3
     #port: 8077
-    #password: '2wsx#EDC$RFV'
+    #password: ''
    # jedis.pool:
     #  max-idle: 50
     #  max-active: 200
@@ -33,18 +33,18 @@ spring:
       max-wait: 1000
 
 sms:
-  url: http://smssh1.253.com/msg/send/json
-  account: N6432210
-  passwd: ftTJWYEi633c42
+  url: 
+  account: 
+  passwd: 
   ignore: true #不校验短信验证码
-  tplId: b55d772429c64ad6b3a14ae1dd017de4
+  tplId:
 
 email:
-  serverHost: smtp.qq.com
-  serverPort: 465
-  userName: noreply@bcoin.cn
-  userPassword: yycdnbcsxfuqcagh
-  fromAddress: noreply@bcoin.cn
+  serverHost: 
+  serverPort: 
+  userName: 
+  userPassword:
+  fromAddress: 
   validate: true
 
 ########################## log ##########################
