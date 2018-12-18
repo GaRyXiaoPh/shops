@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.MallOrderMapper">
+
+
+    <insert id="addMallOrder" useGeneratedKeys="true" keyProperty="id" parameterType="com.cmd.wallet.common.model.TMallOrderModel">
+        insert into t_mall_order(user_id,seller_id,good_id,count,address_id,total_price,create_time,update_time,receiver_name,receiver_mobile,province_id,city_id,area_id,detail_addr,price,coin_name)
+        values(#{userId},#{sellerId},#{goodId},#{count},#{addressId},#{totalPrice},NOW(),NOW(),#{receiverName},#{receiverMobile},#{provinceId},#{cityId},#{areaId},#{detailAddr},#{price},#{coinName})
+    </insert>
+
+    <select id="getReturnOrdersByUserId" resultType="com.cmd.wallet.common.vo.MallOrderListVO">
+        SELECT tmo.id,tmg.name,tmo.total_price,tmg.coin_name,ti.img_url,tmo.count,tmo.return_status
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_order tmo on tmg.id=tmo.good_id
+        and ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id  and ti2.type=0)
+        and tmo.is_delete=0
+        and tmo.user_id=#{userId}
+        <![CDATA[ and tmo.return_status > 0]]>
+        order by tmo.create_time desc
+    </select>
+
+    <select id="getOrdersByUserIdAndStatus" resultType="com.cmd.wallet.common.vo.MallOrderListVO">
+        SELECT tmo.id,tmg.name,tmo.total_price,tmg.coin_name,ti.img_url,tmo.count,tmo.return_status
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_order tmo on tmg.id=tmo.good_id
+        and ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id and ti2.type=0)
+        and tmo.is_delete=0
+        and tmo.user_id=#{userId}
+        <if test="status != null">
+            and tmo.status = #{status}
+            and tmo.return_status = 0
+        </if>
+        order by tmo.create_time desc
+    </select>
+
+    <select id="getReturnSellerOrdersByUserId" resultType="com.cmd.wallet.common.vo.MallOrderListVO">
+        SELECT tmo.id,tmg.name,tmo.total_price,tmg.coin_name,ti.img_url,tmo.count,tmo.return_status
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_order tmo on tmg.id=tmo.good_id
+        and ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id and ti2.type=0)
+        and tmo.seller_id=#{userId}
+        <![CDATA[ and tmo.return_status > 0]]>
+        order by tmo.create_time desc
+    </select>
+
+    <select id="getSellerOrdersByUserIdAndStatus" resultType="com.cmd.wallet.common.vo.MallOrderListVO">
+        SELECT tmo.id,tmg.name,tmo.total_price,tmg.coin_name,ti.img_url,tmo.count,tmo.return_status
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_order tmo on tmg.id=tmo.good_id
+        and ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id  and ti2.type=0)
+        and tmo.seller_id=#{userId}
+        <if test="status != null">
+            and tmo.status = #{status}
+            and tmo.return_status = 0
+        </if>
+        order by tmo.create_time desc
+    </select>
+    <select id="getAllSellerOrdersByUserIdAndStatus" resultType="com.cmd.wallet.common.vo.MallOrderListVO">
+        SELECT tmo.id,tmg.name,tmo.total_price,tmg.coin_name,ti.img_url,tmo.count,tmo.return_status
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_order tmo on tmg.id=tmo.good_id
+        and ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id  and ti2.type=0)
+        and tmo.seller_id=#{userId}
+        <if test="status != null">
+            and tmo.status = #{status}
+            and tmo.return_status = 0
+        </if>
+        order by tmo.create_time desc
+    </select>
+
+    <select id="getOrderVOById" resultType="com.cmd.wallet.common.vo.MallOrderVO">
+        SELECT tmo.*,ti.img_url,tmg.name,tmg.id goodId,tmg.stock
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_order tmo on tmg.id=tmo.good_id
+        and ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id  and ti2.type=0)
+        and tmo.id=#{id}
+    </select>
+
+
+    <select id="getOrdersByAdmin" resultType="com.cmd.wallet.common.vo.MallOrderListAdminVO">
+        SELECT tmo.id,tmo.create_time,tmg.id good_id,tmg.name,tmo.total_price,tmo.coin_name,tmo.count,tmo.price,tmo.status,tmo.return_status,tub.id buyer_id,tub.user_name buyer_name,tus.id seller_id,tus.user_name seller_name
+        FROM t_mall_order tmo
+        left JOIN t_mall_good tmg on tmg.id=tmo.good_id
+        left JOIN t_user tub on tub.id = tmo.user_id
+        left JOIN t_user tus on tus.id = tmo.seller_id
+        where 1=1
+        <if test="buyer != null and buyer.length != 0">
+            and tub.user_name like CONCAT('%',#{buyer},'%')
+        </if>
+        <if test="seller != null and seller.length != 0">
+            and tus.user_name like CONCAT('%',#{seller},'%')
+        </if>
+        <if test="goodName != null and goodName.length != 0">
+            and tmg.name like CONCAT('%',#{goodName},'%')
+        </if>
+        <if test="returnStatus != null and returnStatus != 0">
+            and tmo.return_status = #{returnStatus}
+        </if>
+        <if test="returnStatus == 0 and status != null">
+            and tmo.status = #{status}
+            and tmo.return_status = 0
+        </if>
+        order by tmo.create_time desc
+    </select>
+
+
+    <select id="getOrderByAdmin" resultType="com.cmd.wallet.common.vo.MallOrderListAdminVO">
+        SELECT tmo.id,tmo.create_time,tmg.id good_id,tmg.name,tmo.total_price,tmo.coin_name,tmo.count,tmo.price,tmo.status,tmo.return_status,tub.id buyer_id,tub.user_name buyer_name,tus.id seller_id,tus.user_name seller_name,
+        tmo.receiver_name,tmo.receiver_mobile,tmo.province_id,tmo.city_id,tmo.area_id,tmo.detail_addr,tmo.return_reason
+        FROM t_mall_order tmo
+        left JOIN t_mall_good tmg on tmg.id=tmo.good_id
+        left JOIN t_user tub on tub.id = tmo.user_id
+        left JOIN t_user tus on tus.id = tmo.seller_id
+        where tmo.id = #{id}
+    </select>
+</mapper>

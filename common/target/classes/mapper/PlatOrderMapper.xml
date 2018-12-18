@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.PlatOrderMapper">
+
+	<insert id="add" parameterType="com.cmd.wallet.common.model.PlatOrder" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_plat_order(user_id, coin_name, `type`, amount, price, fee, bank_type, bank_name, bank_name_child, bank_user, bank_no, status, create_time, expire_time, pay_code)
+		VALUES (#{userId}, #{coinName}, #{type}, #{amount}, #{price}, #{fee}, #{bankType}, #{bankName}, #{bankNameChild}, #{bankUser}, #{bankNo}, #{status}, #{createTime}, #{expireTime}, #{payCode})
+	</insert>
+
+	<update id="updatePlatOrder" parameterType="com.cmd.wallet.common.model.PlatOrder">
+		UPDATE t_plat_order
+		SET
+		<if test="status!=null">status=#{status},</if>
+		<if test="cancelComment!=null">cancel_comment=#{cancelComment},</if>
+		<if test="comment!=null">comment=#{comment},</if>
+		last_time=NOW()
+		WHERE id=#{id}
+	</update>
+
+
+	<select id="getPlatOrder" resultType="com.cmd.wallet.common.model.PlatOrder">
+		SELECT * FROM t_plat_order WHERE id=#{id}
+	</select>
+	<select id="lockPlatOrder" resultType="com.cmd.wallet.common.model.PlatOrder">
+		SELECT * FROM t_plat_order WHERE id=#{id} FOR UPDATE
+	</select>
+
+
+	<select id="getPlatOrderList" resultType="com.cmd.wallet.common.model.PlatOrder">
+		SELECT * FROM t_plat_order
+		WHERE 1=1
+		<if test="userId!=null">AND user_id=#{userId}</if>
+		<if test="coinName!=null">AND coin_name=#{coinName}</if>
+		<if test="status!=null and status.length>0">
+			AND status IN
+			<foreach collection="status" item="item" index="index" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		ORDER BY create_time DESC
+	</select>
+	<select id="getPlatOrderVOList" resultType="com.cmd.wallet.common.vo.PlatOrderVO">
+		SELECT t2.user_name, t1.* FROM t_plat_order t1
+		LEFT JOIN t_user t2 ON t1.user_id=t2.id
+		WHERE 1=1
+		<if test="userId!=null">AND user_id=#{userId}</if>
+		<if test="coinName!=null">AND coin_name=#{coinName}</if>
+		<if test="status!=null">
+			AND t1.status = #{status}
+		</if>
+		ORDER BY t1.create_time DESC
+	</select>
+
+	<select id="getPlatOrderExpire" resultType="com.cmd.wallet.common.model.PlatOrder">
+		SELECT * FROM t_plat_order WHERE status=4 AND #{now} > expire_time
+	</select>
+
+</mapper>

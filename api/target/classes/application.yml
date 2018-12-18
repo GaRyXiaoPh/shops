@@ -1,0 +1,46 @@
+
+## org.springframework.boot.autoconfigure.web.ServerProperties
+server:
+  port: 8088
+  #session.timeout: 2592000  # 单位: 秒. <= 30 * 24 * 60 * 60
+  tomcat:
+    uri-encoding: UTF-8
+    # 最大处理线程数
+    #maxThreads: 200
+    # 最小线程数
+    #minSpareThreads: 100
+    # 最大等待连接数，在并发访问数超过max-connections时会在等待队列里面排队，超过最大等待的连接数就会直接拒绝连接
+    #accept-count: 100
+
+
+
+##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+spring:
+# http://stackoverflow.com/questions/28902374/spring-boot-rest-service-exception-handling/30193013#30193013
+# 当找不到 handle 时. 默认会发起 response.sendError(404) --> DispatcherServlet.noHandlerFound()
+# 配置下面两个值将会走到 ControllerAdvice 全局里面去
+# org.springframework.boot.autoconfigure.web.WebMvcProperties
+#  mvc.throw-exception-if-no-handler-found: false
+# org.springframework.boot.autoconfigure.web.ResourceProperties
+  resources.add-mappings: true
+  profiles:
+    active: dev
+
+mybatis:
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  configLocation: classpath:config/mybatis-config.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  rowBoundsWithCount: true
+  offsetAsPageNum: true
+
+cmd:
+  wallet:
+    minering: 0 0 0 * * ? #挖矿时间点
+    community: 0 0 7 * * ? #社区奖励时间点
+
+setting:
+  imageOrSms: 1   #登录时 1：使用图形验证码，2：使用短信验证码

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.UserCoinMapper">
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.UserCoin" flushCache="true">
+        INSERT INTO t_user_coin(user_id, coin_name, bind_address)
+        VALUES (#{userId}, #{coinName}, #{bindAddress})
+    </insert>
+
+    <update id="updateUserCoinAddress" flushCache="true">
+        UPDATE t_user_coin SET bind_address=#{bindAddress} WHERE user_id=#{userId} AND coin_name=#{coinName}
+    </update>
+
+    <select id="getUserCoinByUserIdAndCoinName" resultType="com.cmd.wallet.common.vo.UserCoinVO">
+        SELECT * FROM t_user_coin WHERE user_id=#{userId} AND coin_name=#{coinName}
+    </select>
+
+    <select id="getUserCoinByUserId" resultType="com.cmd.wallet.common.vo.UserCoinVO">
+        SELECT uc.*,cc.* FROM t_user_coin uc
+        LEFT JOIN t_coin_config cc
+        ON uc.coin_name = cc.coin_name
+        WHERE uc.user_id=#{userId}
+    </select>
+
+    <select id="getCoinConfigList" resultType="com.cmd.wallet.common.vo.UserCoinVO">
+        select c.name as coinName, cc.* from t_coin c
+        LEFT JOIN t_coin_config cc
+        ON c.name = cc.coin_name
+
+        where c.status=0
+        <if test="coinNameList != null and coinNameList.size > 0">
+            AND  c.name not in
+            <foreach item="item" index="index" collection="coinNameList" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+
+    </select>
+
+    <select id="getUserCoinByAddressAndCoinName" resultType="com.cmd.wallet.common.model.UserCoin">
+        SELECT * FROM t_user_coin WHERE bind_address=#{address} AND coin_name=#{coinName}
+    </select>
+
+    <select id="getUserCoinTask" resultType="com.cmd.wallet.common.model.UserCoin">
+        SELECT * FROM t_user_coin WHERE id>#{id} AND coin_name=#{coinName} AND available_balance>0 ORDER BY id ASC  limit 0, 100
+    </select>
+
+</mapper>

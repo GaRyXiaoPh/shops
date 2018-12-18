@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.UserEarningsMapper">
+
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.UserEarnings" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_user_earnings(user_id, give_reward, freeze_reward)
+        VALUES (#{userId}, #{giveReward}, #{freezeReward})
+    </insert>
+    <update id="updateUserEarnings" parameterType="com.cmd.wallet.common.model.UserEarnings">
+        UPDATE t_user_earnings
+        <set>
+            <if test="giveReward!=null">give_reward=#{giveReward},</if>
+            <if test="freezeReward!=null">freeze_reward=#{freezeReward},</if>
+        </set>
+        WHERE user_id=#{userId}
+    </update>
+    <select id="getUserEarningsByUserId" resultType="com.cmd.wallet.common.model.UserEarnings">
+        SELECT * FROM t_user_earnings WHERE user_id=#{userId}
+    </select>
+    <update id="incrementRewardByUserId" parameterType="com.cmd.wallet.common.model.UserEarnings">
+        UPDATE t_user_earnings
+        <set>
+            <if test="giveReward!=null">give_reward=give_reward+#{giveReward},</if>
+            <if test="freezeReward!=null">freeze_reward=freeze_reward+#{freezeReward},</if>
+        </set>
+        WHERE user_id=#{userId}
+    </update>
+
+
+</mapper>

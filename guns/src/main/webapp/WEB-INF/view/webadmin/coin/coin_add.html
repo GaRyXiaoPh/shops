@@ -1,0 +1,46 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <#input id="name" name="币种名称" underline="true"/>
+                    <#input id="symbol" name="币种符号" underline="true"/>
+                    <#input id="category" name="币种种类" underline="true"/>
+                    <#input id="displayName" name="显示名称" underline="true"/>
+                    <#input id="displayNameAll" name="多语言的显示名" underline="true"/>
+                    <#input id="image" name="图标地址" type="file" underline="true"/>
+                    <image id="image1" src="" style="width: 200px;height: 200px; margin-left: 250px;display: none;"></image>
+                    <#input id="icon" name="币种小图标地址，小图" type="file" underline="true"/>
+                    <image id="icon1" src="" style="width: 200px;height: 200px; margin-left: 250px;display: none;"></image>
+                    <#input id="serverAddress" name="币种的服务器地址"/>
+                    <#input id="serverPort" name="币种的服务器端口" underline="true"/>
+                    <#input id="serverUser" name="服务器连接用户名" underline="true"/>
+                    <#input id="serverPassword" name="服务器连接密码" underline="true"/>
+                    <#input id="contractAddress" name="以太坊合约地址" underline="true"/>
+                    <#input id="coinSelfParameter" name="币种本身的一些参数" underline="true"/>
+                    <#input id="transferMaxAmount" name="提现最大金额" underline="true"/>
+                    <#input id="transferMinAmount" name="提现最小金额" underline="true"/>
+                    <#input id="transferFeeRate" name="转出手续费，0.1代表10%" underline="true"/>
+                    <#input id="maximumAmountDay" name="每天最大提币数量" underline="true"/>
+                    <#input id="maximumNumberDay" name="每天最大提币次数" underline="true"/>
+                    <#input id="withdrawFeeRate" name="提币手续费，0.1代表10%" underline="true"/>
+                    <#input id="coinBase" name="主账户地址设置(区块链地址/本平台地址)" underline="true"/>
+                    <!--<#avatar id="test" name="头像" underline="true" />-->
+                </div>
+
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="CoinInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="CoinInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/coin/coin_info.js"></script>
+@}

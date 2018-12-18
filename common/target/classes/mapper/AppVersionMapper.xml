@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.AppVersionMapper">
+
+    <select id="getAppVersion" resultType="com.cmd.wallet.common.model.AppVersion">
+        SELECT * FROM t_app_version WHERE platform=#{platform} ORDER BY code DESC limit 0, 1
+    </select>
+
+    <select id="getAppVersionList" resultType="com.cmd.wallet.common.model.AppVersion">
+        SELECT * FROM t_app_version
+    </select>
+
+    <select id="getAppVersionById" resultType="com.cmd.wallet.common.model.AppVersion">
+        SELECT * from  t_app_version where id=#{id}
+    </select>
+    <update id="updateAppVersion" parameterType="com.cmd.wallet.common.model.AppVersion" >
+        UPDATE t_app_version
+        SET
+        <if test="code!=null">code=#{code},</if>
+        <if test="versionName!=null"> version_name=#{versionName},</if>
+        <if test="url!=null"> url=#{url},</if>
+        <if test="content!=null"> content=#{content},</if>
+        <if test="force!=null"> `force`=#{force},</if>
+        last_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+</mapper>
+
+

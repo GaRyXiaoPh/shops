@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.UserBankMapper">
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.UserBank" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_user_bank(user_id, bank_type, bank_name, bank_name_child, bank_user, bank_no, status)
+        VALUES (#{userId}, #{bankType}, #{bankName}, #{bankNameChild}, #{bankUser}, #{bankNo}, #{status})
+    </insert>
+    <update id="updateUserBank" parameterType="com.cmd.wallet.common.model.UserBank">
+        UPDATE t_user_bank
+        SET
+        <if test="bankName!=null"> bank_name=#{bankName},</if>
+        <if test="bankNameChild!=null">bank_name_child=#{bankNameChild},</if>
+        <if test="bankUser!=null"> bank_user=#{bankUser},</if>
+        <if test="bankNo!=null"> bank_no=#{bankNo},</if>
+        <if test="status!=null"> status=#{status},</if>
+        last_time=NOW()
+        WHERE id=#{id} AND user_id=#{userId}
+    </update>
+    <delete id="del">
+        DELETE FROM t_user_bank WHERE id=#{id} AND user_id=#{userId}
+    </delete>
+    <select id="getUserBank" resultType="com.cmd.wallet.common.model.UserBank">
+        SELECT * FROM t_user_bank WHERE id=#{id}
+    </select>
+    <select id="getUserBankList" resultType="com.cmd.wallet.common.model.UserBank">
+        SELECT * FROM t_user_bank WHERE user_id=#{userId}
+    </select>
+    <select id="getOneUserBankByUserId" resultType="com.cmd.wallet.common.model.UserBank">
+        SELECT * FROM t_user_bank WHERE user_id=#{userId} limit 0,1
+    </select>
+
+</mapper>

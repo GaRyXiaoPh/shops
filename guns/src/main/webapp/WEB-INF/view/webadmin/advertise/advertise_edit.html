@@ -1,0 +1,67 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <#input id="id" name="ID" value="${item.id}" readonly="true" underline="true"/>
+                    <#input id="name" value="${item.name}" name="广告名称" underline="true"/>
+
+                    <#select id="locale" name="语言版本" underline="true" class="form-control">
+                        <option value="zh_CN" ${item.locale=="zh_CN"?"selected":""}>中文</option>
+                        <option value="en_US" ${item.locale=="en_US"?"selected":""}>英文</option>
+                    </#select>
+
+
+
+                <#select id="position" name="广告位置" underline="true" class="form-control">
+                    <option value="Shuffling_figure" ${item.status=="Shuffling_figure"?"selected":""}>轮播图</option>
+                    <option value="Rolling" ${item.status=="Rolling"?"selected":""}>滚动公告</option>
+                </#select>
+
+
+                    <#input id="startTime"  value="${item.startTime}"  name="开始时间" underline="true"/>
+                    <#input id="endTime" value="${item.endTime}" name="结束时间" underline="true"/>
+
+
+                    <#select id="status" name="状态" underline="true" class="form-control">
+                        <option value="SHOW" ${item.status=="SHOW"?"selected":""}>上线</option>
+                        <option value="HIDE" ${item.status=="HIDE"?"selected":""}>下线</option>
+                    </#select>
+
+                    <#input id="url" name="广告图片" value="${item.url}" type="file" underline="true"/>
+                    <image id="image" src="${item.url}" style="width: 200px;height: 200px; margin-left: 250px;display: none;"></image>
+
+                    <#input id="link"  value="${item.link}" name="广告链接" underline="true"/>
+                    <#input id="remark" value="${item.remark}" name="备注" underline="true"/>
+
+
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="AdvertiseInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="AdvertiseInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/advertise/advertise_info.js"></script>
+
+<script>
+    laydate.render({
+        elem: '#startTime'
+        ,type: 'datetime'
+    });
+
+    laydate.render({
+        elem: '#endTime'
+        ,type: 'datetime'
+    });
+
+</script>
+@}

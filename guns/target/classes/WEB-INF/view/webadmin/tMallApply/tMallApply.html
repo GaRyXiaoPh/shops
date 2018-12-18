@@ -1,0 +1,32 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>商家审核管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <!--<div class="row">-->
+                            <!--<div class="col-sm-3">-->
+                                <!--<#NameCon id="condition" name="名称" />-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-3">-->
+                                <!--<#button name="搜索" icon="fa-search" clickFun="TMallApply.search()"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="hidden-xs" id="TMallApplyTableToolbar" role="group">
+                            @if(shiro.hasPermission("/tMallApply/update")){
+                                <#button name="详情" icon="fa-edit" clickFun="TMallApply.openTMallApplyDetail()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="TMallApplyTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/tMallApply/tMallApply.js"></script>
+@}

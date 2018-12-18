@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.CoinMapper">
+
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.Coin">
+        INSERT INTO t_coin(`name`, symbol, category, display_name, display_name_all, image, icon, status,
+                server_address, server_port, server_user, server_password, contract_address, coin_self_parameter)
+        VALUES (#{name}, #{symbol}, #{category}, #{displayName}, #{displayNameAll},#{image},#{icon}, 0,
+                #{serverAddress}, #{serverPort}, #{serverUser}, #{serverPassword},#{contractAddress},#{coinSelfParameter})
+    </insert>
+
+    <update id="updateCoin" parameterType="com.cmd.wallet.common.model.Coin">
+        UPDATE t_coin
+        SET
+        <if test="name!=null">
+            `name`=#{name},
+        </if>
+        <if test="symbol!=null">
+            symbol=#{symbol},
+        </if>
+        <if test="category!=null">
+            category=#{category},
+        </if>
+        <if test="displayName!=null">
+            display_name=#{displayName},
+        </if>
+        <if test="displayNameAll!=null">
+            display_name_all=#{displayNameAll},
+        </if>
+        <if test="image!=null">
+            image=#{image},
+        </if>
+        <if test="icon!=null">
+            icon=#{icon},
+        </if>
+        <if test="sort!=null">
+            sort=#{sort},
+        </if>
+        <if test="status!=null">
+            status=#{status},
+        </if>
+        <if test="serverAddress!=null">
+            server_address=#{serverAddress},
+        </if>
+        <if test="serverPort!=null">
+            server_port=#{serverPort},
+        </if>
+        <if test="serverUser!=null">
+            server_user=#{serverUser},
+        </if>
+        <if test="serverPassword!=null">
+            server_password=#{serverPassword},
+        </if>
+        <if test="contractAddress!=null">
+            contract_address=#{contractAddress},
+        </if>
+        <if test="coinSelfParameter!=null">
+            coin_self_parameter=#{coinSelfParameter},
+        </if>
+        last_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteCoin" parameterType="string">
+        DELETE FROM t_coin WHERE `name`=#{coinName}
+    </delete>
+
+    <select id="getCoinById" resultType="com.cmd.wallet.common.model.Coin">
+        SELECT * FROM t_coin WHERE id=#{id}
+    </select>
+
+    <select id="getCoinByName" resultType="com.cmd.wallet.common.model.Coin">
+        SELECT * FROM t_coin WHERE `name`=#{coinName}
+    </select>
+
+    <select id="getCoin" resultType="com.cmd.wallet.common.model.Coin">
+        SELECT * FROM t_coin WHERE `status`=0
+    </select>
+
+    <select id="getCoinAll" resultType="com.cmd.wallet.common.model.Coin">
+        SELECT * FROM t_coin
+    </select>
+
+    <select id="getCoinWallet" resultType="java.lang.String">
+        SELECT display_name FROM t_coin GROUP BY display_name
+    </select>
+
+    <select id="getCoinByWallet" resultType="com.cmd.wallet.common.model.Coin">
+        SELECT * FROM t_coin WHERE display_name=#{displayName}
+    </select>
+
+</mapper>

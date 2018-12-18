@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.MallGoodMapper">
+
+
+    <insert id="addMallGood" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="com.cmd.wallet.common.model.TMallGoodModel">
+        INSERT INTO t_mall_good(user_id, name, detail, price, coin_name,stock, seller_wechat,seller_mobile,shop_address,create_time,update_time,category_id,cny)
+        VALUES (#{userId}, #{name}, #{detail}, #{price}, #{coinName},#{stock}, #{sellerWechat},#{sellerMobile},#{shopAddress},NOW(),NOW(),#{categoryId},#{cny})
+    </insert>
+    <update id="updateMallGoodById" parameterType="com.cmd.wallet.common.model.TMallGoodModel" >
+        UPDATE t_mall_good
+        SET
+        <if test="name != null and name.length > 0"> name=#{name},</if>
+        <if test="detail != null and detail.length > 0"> detail=#{detail},</if>
+        <if test="price != null"> price=#{price}, </if>
+        <if test="coinName != null  and coinName.length > 0"> coin_name = #{coinName}, </if>
+        <if test="stock != null"> stock = #{stock},</if>
+        <if test="sellerWechat !=null"> seller_wechat=#{sellerWechat}, </if>
+        <if test="sellerMobile !=null">seller_mobile=#{sellerMobile}, </if>
+        <if test="shopAddress !=null"> shop_address = #{shopAddress}, </if>
+        <if test="status!=null"> status=#{status}, </if>
+        <if test="isDelete!=null"> is_delete=#{isDelete}, </if>
+        <if test="salesVolume!=null"> sales_volume=#{salesVolume}, </if>
+        <if test="categoryId!=null"> category_id=#{categoryId}, </if>
+        <if test="cny!=null"> cny=#{cny}, </if>
+        update_time = NOW()
+        WHERE id = #{id}
+    </update>
+    <select id="getOnSaleGoodsLikeName" resultType="com.cmd.wallet.common.vo.MallGoodListVO">
+        SELECT tmg.id,tmg.name,tmg.price,tmg.coin_name,ti.img_url,tmg.stock,tmg.sales_volume,tmg.user_id,tms.shop_name,tmg.cny,tmg.create_time
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_shop tms on tmg.user_id = tms.user_id
+        where  ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id and ti2.type = 0)
+        and tmg.status=1
+        and tmg.is_delete=0
+        <if test="name != null and name.length != 0">
+            and tmg.name LIKE CONCAT('%',#{name},'%')
+        </if>
+        <if test="categoryId != null">
+            and tmg.category_id = #{categoryId}
+        </if>
+        <if test ="priceOrderStr ==null and saleNumStr==null">
+            order by tmg.create_time desc
+        </if>
+        <if test="priceOrderStr!=null and saleNumStr ==null">
+            order by tmg.cny  ${priceOrderStr},tmg.create_time  asc
+        </if>
+          <if test="saleNumStr !=null and priceOrderStr==null">
+              order by tmg.sales_volume ${saleNumStr}, tmg.create_time  asc
+          </if>
+
+    </select>
+
+    <select id="getGoodsByUserIdAndStatus" resultType="com.cmd.wallet.common.vo.MallGoodListVO">
+        SELECT tmg.id,tmg.name,tmg.price,tmg.coin_name,ti.img_url,tmg.stock,tmg.sales_volume,tmg.user_id,tms.shop_name, tmg.cny
+        FROM t_mall_good tmg
+        INNER JOIN t_image ti ON tmg.id=ti.refrence_id
+        INNER JOIN t_mall_shop tms on tmg.user_id = tms.user_id
+        where ti.`id`= (select min(ti2.`id`) from t_image ti2 where ti2.refrence_id=tmg.id and ti2.type = 0)
+        and tmg.status= #{status}
+        and tmg.user_id= #{userId}
+        and tmg.is_delete=0
+        order by tmg.create_time desc
+    </select>
+
+    <select id="getGoodsList" resultType="com.cmd.wallet.common.model.TMallGoodModel">
+        SELECT tmg.*,tu.user_name FROM t_mall_good tmg
+        join t_user tu on tmg.user_id=tu.id
+        WHERE 1=1
+        <if test="userName!=null">AND tu.user_name like CONCAT('%',#{userName},'%')</if>
+        <if test="status!=null">AND tmg.status=#{status}</if>
+        <if test="isDelete!=null">AND tmg.is_delete=#{isDelete}</if>
+        <if test="goodName!=null and goodName.length > 0">AND tmg.name like CONCAT('%',#{goodName},'%')</if>
+        order by create_time desc
+    </select>
+</mapper>

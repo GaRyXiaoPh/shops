@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.ReceivedCoinMapper">
+
+    <select id="getReceivedCoin" resultType="com.cmd.wallet.common.model.ReceivedCoin">
+        SELECT t1.*, t2.user_name FROM t_received_coin t1
+        LEFT JOIN t_user t2 ON t1.user_id=t2.id
+        WHERE 1=1
+        <if test="userId!=null">
+            AND t1.user_id=#{userId}
+        </if>
+        <if test="coinName!=null">
+            AND t1.coin_name=#{coinName}
+        </if>
+        ORDER BY t1.received_time DESC
+    </select>
+
+    <select id="getNextReceiveFromExternal" resultType="com.cmd.wallet.common.model.ReceivedCoin">
+        SELECT * FROM t_received_coin
+        WHERE id>#{id} AND coin_name=#{coinName} AND txid!='-1' AND left(txid, 6) != 'inner-' ORDER BY id ASC limit 0, 1
+    </select>
+
+</mapper>

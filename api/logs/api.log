@@ -1,0 +1,324 @@
+2018-12-17 21:54:21.021  INFO 11132 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Starting ApiApplicationTests on AC5SBM6GMXBUA0H with PID 11132 (started by Administrator in D:\Cmd\kuanggongzhijia\api)
+2018-12-17 21:54:21.048  INFO 11132 --- [main] com.cmd.wallet.api.ApiApplicationTests   : The following profiles are active: dev
+2018-12-17 21:54:23.089  INFO 11132 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-17 21:54:23.215  INFO 11132 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-12-17 21:54:24.353  INFO 11132 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-12-17 21:54:24.363  INFO 11132 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-12-17 21:54:24.408  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.cmd.wallet.api.config.ShiroConfig$$EnhancerBySpringCGLIB$$c6d1748b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:24.623  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:24.645  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:24.662  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$8a2f1ca7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:24.667  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:24.687  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:24.763  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:25.666  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:25.684  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:25.685  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:25.696  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy106] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:25.698  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'OAuth2Realm' of type [com.cmd.wallet.common.oauth2.OAuth2Realm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:25.750  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:26.066  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:26.241  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:26.272  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$575acb77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:26.321  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$a06d0195] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:26.405  INFO 11132 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$c24c86a6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:54:28.195  INFO 11132 --- [main] com.cmd.wallet.api.task.BitcoinSync      : init BitcoinSync
+2018-12-17 21:54:28.198  WARN 11132 --- [BitcoinSync] com.cmd.wallet.api.task.BitcoinSync      : Begin sync bitcoin thread
+2018-12-17 21:54:28.199  INFO 11132 --- [main] com.cmd.wallet.api.task.EosSync          : init EosSync
+2018-12-17 21:54:28.203  WARN 11132 --- [EosSync] com.cmd.wallet.api.task.EosSync          : Begin sync eos thread
+2018-12-17 21:54:28.208  WARN 11132 --- [EthSync] com.cmd.wallet.api.task.EthSync          : Begin sync eth thread
+2018-12-17 21:54:28.249  WARN 11132 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task thread
+2018-12-17 21:54:28.252  INFO 11132 --- [main] com.cmd.wallet.api.task.UsdtSync         : init UsdtSync
+2018-12-17 21:54:28.257  WARN 11132 --- [UsdtSync] com.cmd.wallet.api.task.UsdtSync         : Begin sync usdt thread
+2018-12-17 21:54:29.366  INFO 11132 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-12-17 21:54:30.840  WARN 11132 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:54:30.858  WARN 11132 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:54:30.876  WARN 11132 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:54:31.180  INFO 11132 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-12-17 21:54:31.633  INFO 11132 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariCP pool HikariPool-0 is starting.
+2018-12-17 21:54:32.988  INFO 11132 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-12-17 21:54:33.006  INFO 11132 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-17 21:54:33.006  INFO 11132 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-12-17 21:54:33.007  INFO 11132 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2018-12-17 21:54:33.009  INFO 11132 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-17 21:54:33.009  INFO 11132 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-17 21:54:33.009  INFO 11132 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-12-17 21:54:33.009  INFO 11132 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@4379fe2a
+2018-12-17 21:54:33.352  INFO 11132 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-12-17 21:54:33.353  INFO 11132 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-12-17 21:54:33.353  INFO 11132 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2018-12-17 21:54:33.353  INFO 11132 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-12-17 21:54:33.353  INFO 11132 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-17 21:54:33.354  INFO 11132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-17 21:54:33.401  INFO 11132 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-17 21:54:33.515  INFO 11132 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-17 21:54:33.825  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdListUsingGET_1
+2018-12-17 21:54:33.849  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_1
+2018-12-17 21:54:33.852  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_2
+2018-12-17 21:54:33.857  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_3
+2018-12-17 21:54:33.865  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_4
+2018-12-17 21:54:33.997  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addTransferAddressUsingPOST_1
+2018-12-17 21:54:34.139  INFO 11132 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getWalletUsingGET_1
+2018-12-17 21:54:34.192  INFO 11132 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2018-12-17 21:54:34.192  INFO 11132 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-17 21:54:34.208  INFO 11132 --- [task-scheduler-2] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getMarketTick start
+2018-12-17 21:54:34.209  INFO 11132 --- [task-scheduler-1] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getUsdToCny start
+2018-12-17 21:54:34.226  INFO 11132 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Started ApiApplicationTests in 14.124 seconds (JVM running for 16.298)
+2018-12-17 21:54:34.266 ERROR 11132 --- [task-scheduler-1] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:54:34.268 ERROR 11132 --- [task-scheduler-2] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:54:35.330  INFO 11132 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task start.......
+2018-12-17 21:54:35.330  INFO 11132 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : End task end......
+2018-12-17 21:54:36.933  INFO 11132 --- [EthSync] com.cmd.wallet.service.EthService        : begin syncNewTransactions(eth), host=47.75.240.125,port=8066
+2018-12-17 21:56:28.474  INFO 14008 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Starting ApiApplicationTests on AC5SBM6GMXBUA0H with PID 14008 (started by Administrator in D:\Cmd\kuanggongzhijia\api)
+2018-12-17 21:56:28.477  INFO 14008 --- [main] com.cmd.wallet.api.ApiApplicationTests   : The following profiles are active: dev
+2018-12-17 21:56:29.881  INFO 14008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-17 21:56:29.978  INFO 14008 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-12-17 21:56:31.014  INFO 14008 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-12-17 21:56:31.024  INFO 14008 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-12-17 21:56:31.074  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.cmd.wallet.api.config.ShiroConfig$$EnhancerBySpringCGLIB$$5228005a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:31.291  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:31.328  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:31.348  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$1585a876] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:31.353  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:31.371  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:31.425  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.087  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.100  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.101  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.104  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy106] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.105  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'OAuth2Realm' of type [com.cmd.wallet.common.oauth2.OAuth2Realm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.146  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.549  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.682  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.714  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e2b15746] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.768  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$2bc38d64] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:32.873  INFO 14008 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$4da31275] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:56:34.487  INFO 14008 --- [main] com.cmd.wallet.api.task.BitcoinSync      : init BitcoinSync
+2018-12-17 21:56:34.490  WARN 14008 --- [BitcoinSync] com.cmd.wallet.api.task.BitcoinSync      : Begin sync bitcoin thread
+2018-12-17 21:56:34.491  INFO 14008 --- [main] com.cmd.wallet.api.task.EosSync          : init EosSync
+2018-12-17 21:56:34.493  WARN 14008 --- [EosSync] com.cmd.wallet.api.task.EosSync          : Begin sync eos thread
+2018-12-17 21:56:34.497  WARN 14008 --- [EthSync] com.cmd.wallet.api.task.EthSync          : Begin sync eth thread
+2018-12-17 21:56:34.541  WARN 14008 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task thread
+2018-12-17 21:56:34.544  INFO 14008 --- [main] com.cmd.wallet.api.task.UsdtSync         : init UsdtSync
+2018-12-17 21:56:34.547  WARN 14008 --- [UsdtSync] com.cmd.wallet.api.task.UsdtSync         : Begin sync usdt thread
+2018-12-17 21:56:36.155  INFO 14008 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-12-17 21:56:37.685  WARN 14008 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:56:37.705  WARN 14008 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:56:37.726  WARN 14008 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:56:38.035  INFO 14008 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-12-17 21:56:38.662  INFO 14008 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariCP pool HikariPool-0 is starting.
+2018-12-17 21:56:39.814  INFO 14008 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-12-17 21:56:39.847  INFO 14008 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-17 21:56:39.847  INFO 14008 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-12-17 21:56:39.849  INFO 14008 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2018-12-17 21:56:39.850  INFO 14008 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-17 21:56:39.850  INFO 14008 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-17 21:56:39.851  INFO 14008 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-12-17 21:56:39.851  INFO 14008 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@74691677
+2018-12-17 21:56:40.200  INFO 14008 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-12-17 21:56:40.201  INFO 14008 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-12-17 21:56:40.201  INFO 14008 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2018-12-17 21:56:40.201  INFO 14008 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-12-17 21:56:40.201  INFO 14008 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-17 21:56:40.201  INFO 14008 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-17 21:56:40.254  INFO 14008 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-17 21:56:40.343  INFO 14008 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-17 21:56:40.646  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdListUsingGET_1
+2018-12-17 21:56:40.668  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_1
+2018-12-17 21:56:40.671  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_2
+2018-12-17 21:56:40.675  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_3
+2018-12-17 21:56:40.682  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_4
+2018-12-17 21:56:40.818  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addTransferAddressUsingPOST_1
+2018-12-17 21:56:40.974  INFO 14008 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getWalletUsingGET_1
+2018-12-17 21:56:41.043  INFO 14008 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2018-12-17 21:56:41.044  INFO 14008 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-17 21:56:41.073  INFO 14008 --- [task-scheduler-8] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getMarketTick start
+2018-12-17 21:56:41.074  INFO 14008 --- [task-scheduler-4] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getUsdToCny start
+2018-12-17 21:56:41.087  INFO 14008 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Started ApiApplicationTests in 13.182 seconds (JVM running for 14.708)
+2018-12-17 21:56:41.130 ERROR 14008 --- [task-scheduler-4] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:56:41.188 ERROR 14008 --- [task-scheduler-8] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:56:41.547  INFO 14008 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task start.......
+2018-12-17 21:56:41.547  INFO 14008 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : End task end......
+2018-12-17 21:56:43.726  INFO 14008 --- [EthSync] com.cmd.wallet.service.EthService        : begin syncNewTransactions(eth), host=47.75.240.125,port=8066
+2018-12-17 21:56:51.318  INFO 14008 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-17 21:56:51.324  INFO 14008 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2018-12-17 21:56:51.326  INFO 14008 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-17 21:56:51.326  INFO 14008 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2018-12-17 21:56:51.387  INFO 14008 --- [Thread-3] com.zaxxer.hikari.pool.HikariPool        : HikariCP pool HikariPool-0 is shutting down.
+2018-12-17 21:56:51.494  INFO 14008 --- [HikariCP connection filler (pool HikariPool-0)] com.zaxxer.hikari.util.ConcurrentBag     : ConcurrentBag has been closed, ignoring add()
+2018-12-17 21:57:05.563  INFO 14492 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Starting ApiApplicationTests on AC5SBM6GMXBUA0H with PID 14492 (started by Administrator in D:\Cmd\kuanggongzhijia\api)
+2018-12-17 21:57:05.566  INFO 14492 --- [main] com.cmd.wallet.api.ApiApplicationTests   : The following profiles are active: dev
+2018-12-17 21:57:07.056  INFO 14492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-17 21:57:07.151  INFO 14492 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-12-17 21:57:07.705  INFO 14492 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-12-17 21:57:07.712  INFO 14492 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-12-17 21:57:07.759  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.cmd.wallet.api.config.ShiroConfig$$EnhancerBySpringCGLIB$$17ebe03e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:07.935  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:07.952  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:07.969  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$db49885a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:07.975  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:07.993  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.061  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.587  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.601  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.602  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.604  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy106] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.606  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'OAuth2Realm' of type [com.cmd.wallet.common.oauth2.OAuth2Realm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.636  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.840  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.970  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:08.998  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a875372a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:09.043  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$f1876d48] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:09.118  INFO 14492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$1366f259] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:10.469  INFO 14492 --- [main] com.cmd.wallet.api.task.BitcoinSync      : init BitcoinSync
+2018-12-17 21:57:10.471  WARN 14492 --- [BitcoinSync] com.cmd.wallet.api.task.BitcoinSync      : Begin sync bitcoin thread
+2018-12-17 21:57:10.473  INFO 14492 --- [main] com.cmd.wallet.api.task.EosSync          : init EosSync
+2018-12-17 21:57:10.475  WARN 14492 --- [EosSync] com.cmd.wallet.api.task.EosSync          : Begin sync eos thread
+2018-12-17 21:57:10.477  WARN 14492 --- [EthSync] com.cmd.wallet.api.task.EthSync          : Begin sync eth thread
+2018-12-17 21:57:10.515  WARN 14492 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task thread
+2018-12-17 21:57:10.518  INFO 14492 --- [main] com.cmd.wallet.api.task.UsdtSync         : init UsdtSync
+2018-12-17 21:57:10.519  WARN 14492 --- [UsdtSync] com.cmd.wallet.api.task.UsdtSync         : Begin sync usdt thread
+2018-12-17 21:57:11.472  INFO 14492 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-12-17 21:57:12.774  WARN 14492 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:57:12.792  WARN 14492 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:57:12.807  WARN 14492 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:57:13.062  INFO 14492 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-12-17 21:57:13.451  INFO 14492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariCP pool HikariPool-0 is starting.
+2018-12-17 21:57:14.465  INFO 14492 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-12-17 21:57:14.483  INFO 14492 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-17 21:57:14.483  INFO 14492 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-12-17 21:57:14.484  INFO 14492 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2018-12-17 21:57:14.484  INFO 14492 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-17 21:57:14.485  INFO 14492 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-17 21:57:14.490  INFO 14492 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-12-17 21:57:14.490  INFO 14492 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@38d895e8
+2018-12-17 21:57:14.800  INFO 14492 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-12-17 21:57:14.800  INFO 14492 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-12-17 21:57:14.801  INFO 14492 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2018-12-17 21:57:14.801  INFO 14492 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-12-17 21:57:14.801  INFO 14492 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-17 21:57:14.801  INFO 14492 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-17 21:57:14.833  INFO 14492 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-17 21:57:14.884  INFO 14492 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-17 21:57:15.124  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdListUsingGET_1
+2018-12-17 21:57:15.149  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_1
+2018-12-17 21:57:15.152  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_2
+2018-12-17 21:57:15.160  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_3
+2018-12-17 21:57:15.165  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_4
+2018-12-17 21:57:15.300  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addTransferAddressUsingPOST_1
+2018-12-17 21:57:15.467  INFO 14492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getWalletUsingGET_1
+2018-12-17 21:57:15.508  INFO 14492 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2018-12-17 21:57:15.508  INFO 14492 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-17 21:57:15.547  INFO 14492 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Started ApiApplicationTests in 10.515 seconds (JVM running for 12.108)
+2018-12-17 21:57:15.548  INFO 14492 --- [task-scheduler-8] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getUsdToCny start
+2018-12-17 21:57:15.548  INFO 14492 --- [task-scheduler-3] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getMarketTick start
+2018-12-17 21:57:15.660 ERROR 14492 --- [task-scheduler-3] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:57:15.699 ERROR 14492 --- [task-scheduler-8] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:57:16.199  INFO 14492 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-17 21:57:16.204  INFO 14492 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2018-12-17 21:57:16.204  INFO 14492 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-12-17 21:57:16.205  INFO 14492 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2018-12-17 21:57:16.930  INFO 14492 --- [Thread-3] com.zaxxer.hikari.pool.HikariPool        : HikariCP pool HikariPool-0 is shutting down.
+2018-12-17 21:57:17.057  INFO 14492 --- [HikariCP connection filler (pool HikariPool-0)] com.zaxxer.hikari.util.ConcurrentBag     : ConcurrentBag has been closed, ignoring add()
+2018-12-17 21:57:23.023  INFO 15212 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Starting ApiApplicationTests on AC5SBM6GMXBUA0H with PID 15212 (started by Administrator in D:\Cmd\kuanggongzhijia\api)
+2018-12-17 21:57:23.026  INFO 15212 --- [main] com.cmd.wallet.api.ApiApplicationTests   : The following profiles are active: dev
+2018-12-17 21:57:24.525  INFO 15212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-17 21:57:24.639  INFO 15212 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-12-17 21:57:25.651  INFO 15212 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-12-17 21:57:25.660  INFO 15212 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-12-17 21:57:25.718  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.cmd.wallet.api.config.ShiroConfig$$EnhancerBySpringCGLIB$$7ae44bc1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:25.917  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.context.properties.ConversionServiceDeducer$Factory' of type [org.springframework.boot.context.properties.ConversionServiceDeducer$Factory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:25.940  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:25.955  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$3e41f3dd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:25.960  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:25.978  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.034  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.664  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.678  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.679  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.683  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy106] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.685  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'OAuth2Realm' of type [com.cmd.wallet.common.oauth2.OAuth2Realm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:26.730  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:27.007  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:27.137  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:27.177  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b6da2ad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:27.229  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$547fd8cb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:27.324  INFO 15212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$765f5ddc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-17 21:57:29.042  INFO 15212 --- [main] com.cmd.wallet.api.task.BitcoinSync      : init BitcoinSync
+2018-12-17 21:57:29.046  WARN 15212 --- [BitcoinSync] com.cmd.wallet.api.task.BitcoinSync      : Begin sync bitcoin thread
+2018-12-17 21:57:29.046  INFO 15212 --- [main] com.cmd.wallet.api.task.EosSync          : init EosSync
+2018-12-17 21:57:29.049  WARN 15212 --- [EosSync] com.cmd.wallet.api.task.EosSync          : Begin sync eos thread
+2018-12-17 21:57:29.053  WARN 15212 --- [EthSync] com.cmd.wallet.api.task.EthSync          : Begin sync eth thread
+2018-12-17 21:57:29.100  WARN 15212 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task thread
+2018-12-17 21:57:29.103  INFO 15212 --- [main] com.cmd.wallet.api.task.UsdtSync         : init UsdtSync
+2018-12-17 21:57:29.106  WARN 15212 --- [UsdtSync] com.cmd.wallet.api.task.UsdtSync         : Begin sync usdt thread
+2018-12-17 21:57:30.218  INFO 15212 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-12-17 21:57:31.722  WARN 15212 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:57:31.740  WARN 15212 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:57:31.758  WARN 15212 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class org.joda.time.LocalDateTime to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2018-12-17 21:57:32.060  INFO 15212 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-12-17 21:57:32.436  INFO 15212 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariCP pool HikariPool-0 is starting.
+2018-12-17 21:57:33.598  INFO 15212 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-12-17 21:57:33.624  INFO 15212 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-12-17 21:57:33.624  INFO 15212 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-12-17 21:57:33.626  INFO 15212 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2018-12-17 21:57:33.627  INFO 15212 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-12-17 21:57:33.627  INFO 15212 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-12-17 21:57:33.628  INFO 15212 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-12-17 21:57:33.628  INFO 15212 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@397f925e
+2018-12-17 21:57:33.934  INFO 15212 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-12-17 21:57:33.934  INFO 15212 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-12-17 21:57:33.935  INFO 15212 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2018-12-17 21:57:33.935  INFO 15212 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-12-17 21:57:33.935  INFO 15212 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-12-17 21:57:33.935  INFO 15212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-17 21:57:34.038  INFO 15212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-17 21:57:34.118  INFO 15212 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-17 21:57:34.411  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAdListUsingGET_1
+2018-12-17 21:57:34.438  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_1
+2018-12-17 21:57:34.441  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_2
+2018-12-17 21:57:34.446  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_3
+2018-12-17 21:57:34.453  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getArticleByLocaleUsingGET_4
+2018-12-17 21:57:34.589  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addTransferAddressUsingPOST_1
+2018-12-17 21:57:34.732  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getWalletUsingGET_1
+2018-12-17 21:57:34.782  INFO 15212 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2018-12-17 21:57:34.782  INFO 15212 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-12-17 21:57:34.797  INFO 15212 --- [task-scheduler-3] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getMarketTick start
+2018-12-17 21:57:34.797  INFO 15212 --- [task-scheduler-1] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getUsdToCny start
+2018-12-17 21:57:34.812  INFO 15212 --- [main] com.cmd.wallet.api.ApiApplicationTests   : Started ApiApplicationTests in 12.329 seconds (JVM running for 14.091)
+2018-12-17 21:57:34.856 ERROR 15212 --- [task-scheduler-1] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:57:34.905 ERROR 15212 --- [task-scheduler-3] com.cmd.wallet.service.CrawlerService    : don't config USD rate
+2018-12-17 21:57:37.809  INFO 15212 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task start.......
+2018-12-17 21:57:37.810  INFO 15212 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : End task end......
+2018-12-17 21:57:37.917  INFO 15212 --- [EthSync] com.cmd.wallet.service.EthService        : begin syncNewTransactions(eth), host=47.75.240.125,port=8066
+2018-12-17 22:02:36.280  INFO 15212 --- [task-scheduler-5] com.cmd.wallet.api.task.ScheduledTask    : ScheduledTask::getMarketTick start
+2018-12-17 22:02:36.281  INFO 15212 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : Begin task start.......
+2018-12-17 22:02:36.281  INFO 15212 --- [TaskThread] com.cmd.wallet.api.task.TaskThread       : End task end......

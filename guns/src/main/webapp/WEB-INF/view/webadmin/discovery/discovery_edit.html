@@ -1,0 +1,50 @@
+@layout("/common/_container.html"){
+
+<style>
+    .article {
+        border-top: 10px solid #6F6F6F;
+    }
+    .article h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    #detail {
+        width: 100%;
+        min-height: 600px;
+        background: #fff;
+    }
+</style>
+
+<div class="row">
+        <div class="row btn-group-m-t">
+            <#button btnCss="info" name="审核通过" id="ensure" icon="fa-check" clickFun="DiscoveryInfoDlg.editSubmitPass()"/>
+            <#button btnCss="danger" name="审核失败" id="cancel" icon="fa-eraser" clickFun="DiscoveryInfoDlg.editSubmitFail()"/>
+            <#button btnCss="danger" name="删除此篇" id="delete" icon="fa-eraser" clickFun="DiscoveryInfoDlg.delete()"/>
+        </div>
+
+        <div class="article">
+            <h2 id="title"></h2>
+            <div id="detail"></div>
+        </div>
+</div>
+
+<script>
+    var g_select_id="${item.id}";
+    var title = document.getElementById('title');
+    title.innerText="${item.title}";
+
+    htmlFormat=function (text) {
+        var regExp = /<\/?[^>]+>/gi;
+        function ReplaceTags(text) {
+            text = text.replace(regExp, "");
+            return text;
+        }
+        return text;
+    };
+    var detail = document.getElementById('detail');
+    detail.innerHTML = htmlFormat("${item.content}");
+
+</script>
+
+<script src="${ctxPath}/static/webadmin/discovery/discovery_info.js"></script>
+@}

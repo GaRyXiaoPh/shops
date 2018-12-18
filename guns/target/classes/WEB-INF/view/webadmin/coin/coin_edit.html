@@ -1,0 +1,41 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <#input id="id" name="ID" value="${item.id}" readonly="true" underline="true"/>
+                    <#input id="name" name="币种名称" value="${item.name}" underline="true"/>
+                    <#input id="symbol" name="币种符号" value="${item.symbol}" underline="true"/>
+                    <#input id="category" name="币种种类" value="${item.category}" underline="true"/>
+                    <#input id="displayName" name="显示名称" value="${item.displayName}" readonly="true" underline="true"/>
+                    <#input id="displayNameAll" name="多语言的显示名" value="${item.displayNameAll}" underline="true"/>
+                    <#input id="image" name="图标地址" value="${item.image}" underline="true"/>
+                    <#input id="icon" name="币种小图标地址，小图" value="${item.icon}" underline="true"/>
+                    <#input id="serverAddress" name="币种的服务器地址" value="${item.serverAddress}"/>
+                    <#input id="serverPort" name="币种的服务器端口" value="${item.serverPort}" underline="true"/>
+                    <#input id="serverUser" name="服务器连接用户名" value="${item.serverUser}" underline="true"/>
+                    <#input id="serverPassword" name="服务器连接密码" value="${item.serverPassword}" underline="true"/>
+                    <#input id="contractAddress" name="以太坊合约地址" value="${item.contractAddress}" underline="true"/>
+                    <#input id="coinSelfParameter" name="币种本身的一些参数" value="${item.coinSelfParameter}" underline="true"/>
+                    <#input id="transferMaxAmount" name="提现最大金额" value="${item.transferMaxAmount}" underline="true"/>
+                    <#input id="transferMinAmount" name="提现最小金额" value="${item.transferMinAmount}" underline="true"/>
+                    <#input id="transferFeeRate" name="转出手续费，0.1代表10%" value="${item.transferFeeRate}" underline="true"/>
+                    <#input id="withdrawFeeRate" name="提币手续费，0.1代表10%" value="${item.withdrawFeeRate}" underline="true"/>
+                    <#input id="coinBase" name="主账户地址设置(区块链地址/本平台地址)" value="${item.coinBase}" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="CoinInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="CoinInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/coin/coin_info.js"></script>
+@}

@@ -1,0 +1,42 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>转账管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="mobile" name="手机号"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <#NameCon id="address" name="地址"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <#select id="status" name="" underline="true">
+                                    <option value="" selected></option>
+                                    <option value="0">审核申请</option>
+                                    <option value="1">审核通过</option>
+                                    <option value="2">审核失败</option>
+                                </#select>
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="Check.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="CheckTableToolbar" role="group">
+                            <#button name="审核通过" icon="fa-edit" clickFun="Check.openCheckPass()" space="true"/>
+                            <#button name="审核失败" icon="fa-edit" clickFun="Check.openCheckFail()" space="true"/>
+                        </div>
+                        <#table id="CheckTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/trans/check.js"></script>
+@}

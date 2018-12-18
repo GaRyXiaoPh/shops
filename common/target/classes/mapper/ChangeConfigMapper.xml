@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.ChangeConfigMapper">
+
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.ChangeConfig">
+        INSERT INTO t_change_config(coin_name, change_name, rate)
+        VALUES (#{coinName}, #{changeName}, #{rate})
+    </insert>
+
+    <delete id="del">
+        DELETE FROM t_change_config WHERE id = #{id}
+    </delete>
+
+    <update id="updateChangeConfig" parameterType="com.cmd.wallet.common.model.ChangeConfig">
+        UPDATE t_change_config
+        SET
+        <if test="status!=null">
+            `status`=#{status},
+        </if>
+        <if test="rate!=null">
+            rate=#{rate},
+        </if>
+        <if test="cnyRate!=null">
+            cny_rate=#{cnyRate},
+        </if>
+        <if test="usdRate!=null">
+            usd_rate=#{usdRate},
+        </if>
+        <if test="changeRate!=null">
+            change_rate=#{changeRate},
+        </if>
+        <if test="coinName !=null">
+            coin_name = #{coinName},
+        </if>
+        <if test="changeName != null">
+            change_name = #{changeName},
+        </if>
+        last_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <select id="getChangeConfig" resultType="com.cmd.wallet.common.model.ChangeConfig">
+        SELECT * FROM t_change_config WHERE coin_name=#{coinName} AND change_name=#{changeName}
+    </select>
+
+    <select id="getChangeConfigList" resultType="com.cmd.wallet.common.model.ChangeConfig">
+        SELECT * FROM t_change_config WHERE `status`=0
+    </select>
+
+    <select id="adminGetChangeConfigList" resultType="com.cmd.wallet.common.model.ChangeConfig">
+        SELECT * FROM t_change_config
+    </select>
+
+    <select id="getChangeConfigById" parameterType="int" resultType="com.cmd.wallet.common.model.ChangeConfig">
+        SELECT * FROM t_change_config WHERE id=#{id}
+    </select>
+
+</mapper>

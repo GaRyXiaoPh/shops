@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>树状图</title>
+	<style>
+		p,ul {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			margin-top: 40px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.father, .children {
+			display: flex;
+		}
+		.father {
+			margin-top: 40px;
+			display: flex;
+			justify-content: space-between;
+			width: 645px;
+		}
+		.splitLine {
+			width: 833px;
+			display: flex;
+			justify-content: space-between;
+		}
+		.children {
+			margin-top: 40px;
+			display: flex;
+			width: 953px;
+			justify-content: space-between;
+		}
+		.children > div {
+			display: flex;
+			width: 429px;
+			justify-content: space-between;
+		}
+		.item {
+			width: 100px;
+			height: 60px;
+			padding: 0 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background: green;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="grandPa item">
+			<p>爷爷</p>
+			<p>13008865872</p>
+		</div>
+		<!-- 分割线 -->
+		<img width="525" height="206" src="./large_line.png" />
+		<!-- 分割线结束 -->
+		<ul class="father">
+			<li class="item">
+				<p>爸爸1</p>
+				<p>13008865872</p>
+			</li>
+			<li class="item">
+				<p>爸爸2</p>
+				<p>13008865872</p>
+			</li>
+		</ul>
+		<!-- 分割线 -->
+		<div class="splitLine">
+			<img width="309" height="207" src="./small_line.png" />
+			<img width="309" height="207" src="./small_line.png" />
+		</div>
+		<!-- 分割线结束 -->
+		<div class="children">
+			<div>
+				<div class="item">
+					<p>孙子1</p>
+					<p>13008865872</p>
+				</div>
+				<div class="item">
+					<p>孙子1</p>
+					<p>13008865872</p>
+				</div>
+			</div>
+			<div>
+				<div class="item">
+					<p>孙子1</p>
+					<p>13008865872</p>
+				</div>
+				<div class="item">
+					<p>孙子1</p>
+					<p>13008865872</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+
+</script>
+</html>

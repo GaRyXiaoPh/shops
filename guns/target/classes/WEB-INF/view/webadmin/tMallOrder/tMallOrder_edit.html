@@ -1,0 +1,67 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            <input type="hidden" id="statusValue" value="${item.status}">
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="主键" value="${item.id}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="buyerName" name="买家" value="${item.buyerName}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="sellerName" name="卖家" value="${item.sellerName}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="name" name="商品" value="${item.name}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="count" name="购买数量" value="${item.count}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="coinName" name="计价币种" value="${item.coinName}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="totalPrice" name="合计总金额" value="${item.totalPrice}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="createTime" name="下单时间" value="${item.createTime}" underline="true" readonly = 'true' disabled = 'true'/>
+                            @if(item.status >= 2){
+                            <#photo id="sendImg" name="卖家发货凭证" underline="true" readonly='true' disabled='true' avatarImg="${item.sendImg}"/>
+                            @}
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="receiverName" name="收货人姓名" value="${item.receiverName}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="receiverMobile" name="收货人手机号" value="${item.receiverMobile}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="provinceId" name="省名" value="${item.provinceId}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="cityId" name="城市" value="${item.cityId}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="areaId" name="区县" value="${item.areaId}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="detailAddr" name="详细地址" value="${item.detailAddr}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <!--//1:待发货；2:已发货；3:已完成,4取消订单,5：退货中，6：已退货-->
+
+                            <#select  id="status" name="状态" underline="true" readonly='true' disabled='true'>
+                                <option value="1">待发货</option>
+                                <option value="2">已发货</option>
+                                <option value="3">已完成</option>
+                                <option value="4">取消订单</option>
+                                <option value="5">退货中</option>
+                                <option value="6">已退货</option>
+                            </#select>
+                            @if(item.status >= 5){
+                            <#input id="returnTime" name="申请退货时间" value="${item.returnTime}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#input id="returnReason" name="退货原因" value="${item.returnReason}" underline="true" readonly = 'true' disabled = 'true'/>
+                            <#photo id="returnImg" name="买家退货凭证" underline="true" readonly='true' disabled='true' avatarImg="${item.returnImg}"/>
+                            @}
+
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    @if(item.status <= 2){
+                    <#button name="确认收货" icon="fa-check" clickFun="TMallOrderInfoDlg.confirm()"  space="true"/>
+                    @}
+                    @if(item.status == 5){
+                    <#button name="确认退货" icon="fa-exclamation" clickFun="TMallOrderInfoDlg.return()"  space="true"/>
+                    @}
+                    @if(item.status != 3 &&  item.status != 4 && item.status != 6){
+                    <#button btnCss="danger" name="取消订单" icon="fa-remove" clickFun="TMallOrderInfoDlg.cancel()" space="true"/>
+                    @}
+                    <!--<#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="TMallOrderInfoDlg.editSubmit()"/>-->
+                    <#button btnCss="danger" name="返回" id="cancel" icon="fa-eraser" clickFun="TMallOrderInfoDlg.close()" space="true"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/tMallOrder/tMallOrder_info.js"></script>
+@}

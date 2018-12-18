@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.PlatConfigMapper">
+
+	<insert id="addPlatConfig" parameterType="com.cmd.wallet.common.model.PlatConfig">
+		INSERT INTO t_plat_config(coin_name, buy_price, sell_price, order_amount_min, order_amount_max)
+		VALUES (#{coinName}, #{buyPrice}, #{sellPrice}, #{orderAmountMin}, #{orderAmountMax})
+	</insert>
+	<update id="updatePlatConfig" parameterType="com.cmd.wallet.common.model.PlatConfig">
+		UPDATE t_plat_config
+		SET
+		<if test="coinName!=null">coin_name=#{coinName},</if>
+		<if test="buyPrice!=null">buy_price=#{buyPrice},</if>
+		<if test="sellPrice!=null">sell_price=#{sellPrice},</if>
+		<if test="orderAmountMin!=null">order_amount_min=#{orderAmountMin},</if>
+		<if test="orderAmountMax!=null">order_amount_max=#{orderAmountMax},</if>
+		<if test="expireMinute!=null">expire_minute=#{expireMinute},</if>
+		last_time=NOW()
+		WHERE id=#{id}
+	</update>
+	<select id="getPlatConfig" resultType="com.cmd.wallet.common.model.PlatConfig">
+		SELECT * FROM t_plat_config WHERE coin_name=#{coinName} limit 0,1
+	</select>
+	<select id="getPlat" resultType="com.cmd.wallet.common.model.PlatConfig">
+		SELECT * FROM t_plat_config
+	</select>
+</mapper>

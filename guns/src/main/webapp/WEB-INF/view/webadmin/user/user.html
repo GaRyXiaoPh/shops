@@ -1,0 +1,38 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>用户管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="mobile" name="手机号"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <#NameCon id="email" name="邮箱"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="User.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="UserTableToolbar" role="group">
+                            <#button name="修改用户" icon="fa-edit" clickFun="User.openUserEdit()" space="true"/>
+                            <#button name="用户资产" icon="fa_edit" clickFun="User.openUserCoinList()" space="true"/>
+                            <#button name="资产流水" icon="fa_edit" clickFun="User.openUserBillList()" space="true"/>
+                            <#button name="开启/关闭销售" btnCss='danger' icon="fa_edit" clickFun="User.sellPermit()" space="true"/>
+                            <#button name="开启/关闭自品牌" btnCss='danger' icon="fa_edit" clickFun="User.brandPermit()" space="true"/>
+                            <#button name="开启/关闭全平台" btnCss='danger' icon="fa_edit" clickFun="User.globalPermit()" space="true"/>
+                        </div>
+                        <#table id="UserTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/user/user.js"></script>
+@}

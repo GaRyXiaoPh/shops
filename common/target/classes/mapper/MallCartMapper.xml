@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cmd.wallet.common.mapper.MallCartMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cmd.wallet.common.model.CartModel" id="cartMap">
+        <result property="id" column="id"/>
+        <result property="user_id" column="user_id"/>
+        <result property="goodId" column="good_id"/>
+        <result property="goodName" column="good_name"/>
+        <result property="cny" column="cny"/>
+        <result property="number" column="number"/>
+        <result property="listPicUrl" column="number"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="shopName" column="shop_name"/>
+        <result property="addTime" column="add_time"/>
+
+    </resultMap>
+
+
+    <update id="update" parameterType="com.cmd.wallet.common.model.CartModel">
+        update t_mall_cart
+        <set>
+            <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="goodId != null">`good_id` = #{goodId},</if>
+            <if test="goodName != null">`good_name` = #{goodName},</if>
+            <if test="cny != null">`cny` = #{cny},</if>
+            <if test="number != null">`number` = #{number},</if>
+            <if test="listPicUrl != null">`list_pic_url` = #{listPicUrl},</if>
+            <if test="shopId != null">`shop_id` = #{shopId},</if>
+            <if test="shopName != null">`shop_name` = #{shopName},</if>
+            <if test="addTime != null">`add_time` = #{addTime},</if>
+            id = #{id}
+        </set>
+        where id = #{id}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.UserMapper">
+
+
+    <insert id="addUserToken" parameterType="com.cmd.wallet.common.model.UserToken" flushCache="true">
+        INSERT INTO t_user_token(user_id, token, expire_time)
+        VALUES (#{userId},#{token},#{expireTime})
+    </insert>
+
+    <update id="updateUserToken" parameterType="com.cmd.wallet.common.model.UserToken" flushCache="true">
+        update t_user_token set token=#{token}, expire_time=#{expireTime} where user_id=#{userId}
+    </update>
+
+    <select id="getUserTokenByUserId" resultType="com.cmd.wallet.common.model.UserToken">
+        select * from t_user_token where user_id=#{userId} limit 0,1
+    </select>
+
+    <select id="getUserTokenByToken" resultType="com.cmd.wallet.common.model.UserToken">
+        select * from t_user_token where token=#{token} limit 0,1
+    </select>
+
+    <update id="disableUserToken" flushCache="true">
+        update t_user_token set expire_time=#{expireTime} where user_id=#{userId}
+    </update>
+
+
+    <insert id="addUser" parameterType="com.cmd.wallet.common.model.User" flushCache="true" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(user_name, area_code, mobile, password, pay_password, invite_code, invite, referrer, email, left_invite, right_invite, nick_name, image)
+        values(#{userName}, #{areaCode}, #{mobile}, #{password}, #{payPassword}, #{inviteCode}, #{invite}, #{referrer}, #{email}, #{leftInvite}, #{rightInvite},#{nickName},#{image})
+    </insert>
+    <select id="getUserByMobile" resultType="com.cmd.wallet.common.model.User">
+        SELECT * FROM t_user WHERE mobile=#{mobile}
+    </select>
+    <select id="getUserByEmail" resultType="com.cmd.wallet.common.model.User">
+        SELECT * FROM t_user WHERE email=#{email} limit 0,1
+    </select>
+    <select id="getUserByUserId" resultType="com.cmd.wallet.common.model.User">
+        select * from t_user where id=#{userId} limit 0,1
+    </select>
+    <select id="getUserByUserName" resultType="com.cmd.wallet.common.model.User">
+        select * from t_user where user_name=#{userName} limit 0,1
+    </select>
+    <select id="getUserByInviteCode" resultType="com.cmd.wallet.common.model.User">
+        select * from t_user where left_invite = #{inviteCode} OR right_invite=#{inviteCode} limit 0,1
+    </select>
+    <select id="getUserByNickName" resultType="com.cmd.wallet.common.model.User">
+        SELECT * FROM t_user WHERE nick_name=#{nickName} limit 0,1
+    </select>
+
+
+    <update id="updateUserByUserId" parameterType="com.cmd.wallet.common.model.User" flushCache="true">
+        UPDATE t_user
+        SET
+        <if test="nickName != null"> nick_name=#{nickName},</if>
+        <if test="areaCode != null"> area_code=#{areaCode},</if>
+        <if test="mobile != null"> mobile=#{mobile}, </if>
+        <if test="email!=null"> email=#{email}, </if>
+        <if test="userName!=null"> user_name=#{userName},</if>
+        <if test="password != null and password.length > 0"> password = #{password}, </if>
+        <if test="payPassword != null and payPassword.length > 0"> pay_password = #{payPassword},</if>
+        <if test="inviteCode !=null"> invite_code=#{inviteCode}, </if>
+        <if test="invite !=null">invite=#{invite}, </if>
+        <if test="realName !=null and realName.length >0"> real_name = #{realName},</if>
+        <if test="image!=null"> image=#{image}, </if>
+        <if test="leftChild!=null"> left_child=#{leftChild}, </if>
+        <if test="rightChild!=null"> right_child=#{rightChild}, </if>
+        <if test="leftInvite!=null"> left_invite=#{leftInvite}, </if>
+        <if test="rightInvite!=null"> right_invite=#{rightInvite}, </if>
+        <if test="lastLoginIp!=null">
+            last_login_ip=#{lastLoginIp},
+            last_login_time=NOW(),
+            login_times=login_times+1,
+        </if>
+        <if test="status != null"> status=#{status}, </if>
+        <if test="moneyAll!=null"> money_all=#{moneyAll},</if>
+        <if test="salesPermit!=null"> sales_permit=#{salesPermit},</if>
+        <if test="brandPermit!=null"> brand_permit=#{brandPermit},</if>
+        <if test="globalPermit!=null"> global_permit=#{globalPermit},</if>
+        update_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+
+
+
+    <select id="adminGetUserByMobile" resultType="com.cmd.wallet.common.model.User">
+        SELECT * FROM  t_user
+        where mobile in
+        <foreach item="item" collection="mobile" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <select id="getUserReferrerCount" resultType="int">
+         SELECT COUNT(1) as cnt FROM t_user WHERE invite=#{userId}
+    </select>
+    <select id="getUserList" resultType="com.cmd.wallet.common.vo.UserInfoVO">
+        SELECT * FROM t_user WHERE 1=1
+        <if test="mobile!=null">
+            AND mobile = #{mobile}
+        </if>
+        <if test="email!=null">
+            AND email = #{email}
+        </if>
+        <if test="userId!=null">
+            AND id = #{userId}
+        </if>
+    </select>
+    <select id="userExits" resultType="com.cmd.wallet.common.model.User">
+        select * from t_user where 1=1
+        <if test="userName !=null">
+            and user_name = #{userName}
+        </if>
+        <if test="mobile !=null">
+            and mobile = #{mobile}
+        </if>
+        <if test="email !=null">
+            and email = #{email}
+        </if>
+        <if test="id !=null">
+            and id != #{id}
+        </if>
+    </select>
+
+    <select id="getNextUser" resultType="com.cmd.wallet.common.model.User">
+        SELECT * FROM t_user WHERE id>#{userId} ORDER BY id ASC limit 0, 1
+    </select>
+
+    <update id="clearLeafNode">
+        TRUNCATE TABLE t_leaf_node
+    </update>
+    <insert id="addLeafNode">
+        INSERT INTO t_leaf_node(user_id) SELECT id FROM t_user WHERE id NOT IN (SELECT DISTINCT referrer FROM t_user WHERE referrer IS NOT NULL)
+    </insert>
+    <delete id="delLeafNode">
+        DELETE FROM t_leaf_node WHERE user_id=#{userId}
+    </delete>
+    <select id="getNextLeafNode" resultType="java.lang.Integer">
+        SELECT user_id FROM t_leaf_node WHERE user_id>#{userId} ORDER BY user_id ASC limit 0,1
+    </select>
+
+</mapper>

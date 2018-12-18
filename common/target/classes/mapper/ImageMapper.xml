@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.ImageMapper">
+
+
+    <insert id="addImages" parameterType="list">
+        INSERT INTO t_image (refrence_id,img_url,create_time,type) VALUES
+        <foreach collection="list" separator="," item="item">
+            (#{item.refrenceId},#{item.imgUrl},NOW(),#{item.type})
+        </foreach>
+    </insert>
+    <delete id="deleteImgByRefIdAndType">
+        DELETE FROM t_image WHERE refrence_id=#{refrenceId} and type = #{type}
+    </delete>
+</mapper>

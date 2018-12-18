@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #https://stackoverflow.com/questions/7605953/how-to-change-mysql-timezone-in-java-connection 关于时区的配置
+    url: jdbc:mysql://47.88.221.186:8066/miners_mall?&useLegacyDatetimeCode=false&useTimezone=true&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false
+    username: root
+    password: '%TGBHU*nm123'
+    #type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+    #  minimum-idle: 5
+    #  maximum-pool-size: 40
+    #  connection-test-query: SELECT 1
+
+  #redis:
+   # host: 47.74.145.76
+   # database: 3
+    #port: 8077
+    #password: '2wsx#EDC$RFV'
+   # jedis.pool:
+    #  max-idle: 50
+    #  max-active: 200
+     # max-wait: 1000
+
+
+  redis:
+    host: 127.0.0.1
+    database: 3
+    port: 6379
+    password: ''
+    jedis.pool:
+      max-idle: 50
+      max-active: 200
+      max-wait: 1000
+
+sms:
+  url: http://smssh1.253.com/msg/send/json
+  account: N6432210
+  passwd: ftTJWYEi633c42
+  ignore: true #不校验短信验证码
+  tplId: b55d772429c64ad6b3a14ae1dd017de4
+
+email:
+  serverHost: smtp.qq.com
+  serverPort: 465
+  userName: noreply@bcoin.cn
+  userPassword: yycdnbcsxfuqcagh
+  fromAddress: noreply@bcoin.cn
+  validate: true
+
+########################## log ##########################
+logging:
+  config: classpath:config/log/log.xml
+  file: ./logs/api.log

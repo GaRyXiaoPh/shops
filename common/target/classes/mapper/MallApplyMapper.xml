@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.MallApplyMapper">
+
+    <update id="update" parameterType="com.cmd.wallet.common.model.MallApply">
+        update t_mall_apply
+        <set>
+            <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="contacts != null">`contacts` = #{contacts},</if>
+            <if test="phone != null">`phone` = #{phone},</if>
+            <if test="status != null">`status` = #{status},</if>
+            `update_time` = NOW()
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="findAll" resultType="com.cmd.wallet.common.model.MallApply" parameterType="map">
+        select * from t_mall_apply t
+        where 1=1
+        <if test="status != null">
+          and t.status = #{status}
+        </if>
+    </select>
+
+
+</mapper>

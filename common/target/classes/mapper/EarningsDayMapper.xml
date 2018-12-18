@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.EarningsDayMapper">
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.EarningsDay" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_earnings_day(user_id, stat_day, reward_miner, reward_referrer, reward_community)
+        VALUES (#{userId}, #{statDay}, #{rewardMiner}, #{rewardReferrer}, #{rewardCommunity})
+    </insert>
+    <select id="getEarningsDayByUserIdAndDay" resultType="com.cmd.wallet.common.model.EarningsDay">
+        SELECT * FROM t_earnings_day WHERE user_id=#{userId} AND stat_day=#{statDay}
+    </select>
+    <update id="incrementRewardByUserIdAndDay" parameterType="com.cmd.wallet.common.model.EarningsDay">
+        UPDATE t_earnings_day
+        <set>
+            <if test="rewardMiner!=null">reward_miner=reward_miner+#{rewardMiner},</if>
+            <if test="rewardReferrer!=null">reward_referrer=reward_referrer+#{rewardReferrer},</if>
+            <if test="rewardCommunity!=null">reward_community=reward_community+#{rewardCommunity},</if>
+        </set>
+        WHERE user_id=#{userId} AND stat_day=#{statDay}
+    </update>
+
+    <select id="getEarningsDayList" resultType="com.cmd.wallet.common.model.EarningsDay">
+        SELECT * FROM t_earnings_day WHERE user_id=#{userId} AND (reward_miner>0 OR reward_referrer>0 OR reward_community>0 ) ORDER BY stat_day DESC
+    </select>
+    
+    <update id="initEarningsDay">
+        INSERT INTO t_earnings_day(user_id, stat_day) SELECT user_id, DATE_FORMAT(NOW(), '%Y-%m-%d')  FROM t_user_stat
+    </update>
+
+</mapper>

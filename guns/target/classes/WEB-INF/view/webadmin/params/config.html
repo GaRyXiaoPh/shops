@@ -1,0 +1,35 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>参数配置</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="hidden-xs" id="ConfigTableToolbar" role="group">
+                            @if(shiro.hasPermission("/params/config/add")){
+                                <#button name="添加" icon="fa-plus" clickFun="Config.openAddCoin()"/>
+                            @}
+                            @if(shiro.hasPermission("/params/config/update")){
+                                <#button name="修改" icon="fa-edit" clickFun="Config.openCoinDetail()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="ConfigTable"/>
+
+                        <div class="hidden-xs" id="LevelTableToolbar" role="group">
+                            @if(shiro.hasPermission("/params/level/update")){
+                            <#button name="修改" icon="fa-edit" clickFun="Level.openCoinDetail()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="LevelTable"/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/params/config.js"></script>
+@}

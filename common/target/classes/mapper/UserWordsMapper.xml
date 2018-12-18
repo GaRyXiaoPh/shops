@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.UserWordsMapper">
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.UserWords" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_user_words(user_id, words) VALUES (#{userId}, #{words})
+    </insert>
+    <update id="updateUserWords" parameterType="com.cmd.wallet.common.model.UserWords">
+        UPDATE t_user_words
+        SET
+        <if test="words!=null">words=#{words},</if>
+        <if test="status!=null">status=#{status},</if>
+        last_time=NOW()
+        WHERE id=#{id}
+    </update>
+    <select id="getUserWords" resultType="com.cmd.wallet.common.model.UserWords">
+        SELECT * FROM t_user_words WHERE user_id=#{userId}
+    </select>
+
+</mapper>

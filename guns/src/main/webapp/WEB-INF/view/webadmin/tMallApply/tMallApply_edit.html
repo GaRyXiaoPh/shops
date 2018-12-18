@@ -1,0 +1,65 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <input type="hidden" id="statusValue" value="${item.status}">
+                <input type="hidden" id="id" value="${item.id}">
+                <div class="col-sm-6 b-r">
+                        <!--<#input id="userId" name="申请的用户" value="${item.userId}" underline="true" readonly='true' disabled='true'/>-->
+                        <#input id="contacts" name="联系人" value="${item.contacts}" underline="true" readonly='true' disabled='true'/>
+                        <#input id="phone" name="电话" value="${item.phone}" readonly='true' disabled='true' underline="true"/>
+                        <#input id="addTime" name="申请时间" value="${item.addTime}" underline="true" readonly='true' disabled='true'/>
+                        <#input id="updateTime" name="修改时间" value="${item.updateTime}" underline="true" readonly='true' disabled='true'/>
+                        <#select  id="status" name="状态" underline="true" readonly='true' disabled='true'>
+                            <option value="0">审核中</option>
+                            <option value="1">已驳回</option>
+                            <option value="2">已通过</option>
+                        </#select>
+                </div>
+
+                <div class="col-sm-6">
+                    <#photo id="busLicense" name="营业执照" underline="true" readonly='true' disabled='true' avatarImg="${item.busLicense}"/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">门店照片</label>
+                        @if(tool.isNotEmpty(item.shopPhotos)){
+                            <div class="col-sm-9">
+
+                            @for(shop in item.shopPhotos){
+                                    <img height="200px" src="${shop}">
+                            @}
+                            </div>
+                            @}else{
+                            <div class="col-sm-9">
+                                <input class="form-control"
+                                       readonly="true"
+                                       disabled="true"
+                                       value="无"
+                                >
+                            </div>
+                        @}
+                    </div>
+                </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    @if(item.status == 0){
+                    <#button btnCss="info" name="通过" id="ensure" icon="fa-check" clickFun="TMallApplyInfoDlg.editSubmit(2)"/>
+                    <#button btnCss="danger" name="驳回" id="ensure" icon="fa-remove" clickFun="TMallApplyInfoDlg.editSubmit(1)"/>
+                    @}
+                    <#button btnCss="danger" name="关闭" id="cancel" icon="fa-eraser" clickFun="TMallApplyInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/tMallApply/tMallApply_info.js"></script>
+@}

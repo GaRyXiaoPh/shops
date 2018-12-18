@@ -1,0 +1,44 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#select id="types" name="" value="" underline="true">
+                                    <option value="">流水类型选择</option>
+                                    <option value="Minward">挖矿奖励</option>
+                                    <option value="Transfer">转账流水</option>
+                                    <option value="DisRel">系统拨币</option>
+                                    <option value="Withdraw">提现流水</option>
+
+                                    <option value="MallBuy">购物冻结</option>
+                                    <option value="MallRetu">退货解冻</option>
+                                    <option value="MallRaba">平台促销</option>
+                                    <option value="MallOne">一级推介奖励</option>
+                                    <option value="MallTwo">二级推介奖励</option>
+
+                                    <option value="MallBuyReward">购物返利冻结冻结</option>
+                                    <option value="MallReleaseReward">购物返利释放</option>
+
+                                </#select>
+                            </div>
+
+                        <div class="col-sm-3">
+                            <#NameCon id="userName" name="用户名"/>
+                        </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="Bill.search()"/>
+                            </div>
+                        </div>
+                        <#table id="UserBillTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/full/bill.js"></script>
+@}

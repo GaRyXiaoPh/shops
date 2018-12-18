@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.PlatBankMapper">
+
+	<insert id="addPlatBank" parameterType="com.cmd.wallet.common.model.PlatBank">
+		INSERT INTO t_plat_bank(bank_type,bank_name,bank_name_child,bank_user,bank_no,status)
+		VALUES (#{bankType},#{bankName},#{bankNameChild},#{bankUser},#{bankNo},#{status})
+	</insert>
+
+	<select id="getPlatBankList" resultType="com.cmd.wallet.common.model.PlatBank">
+		SELECT * FROM t_plat_bank WHERE status=1
+	</select>
+	<select id="getPlatBankPage" resultType="com.cmd.wallet.common.model.PlatBank">
+		SELECT * FROM t_plat_bank
+	</select>
+	<update id="updatePlatBank" parameterType="com.cmd.wallet.common.model.PlatBank">
+		UPDATE t_plat_bank
+		SET
+		<if test="bankName!=null">bank_name=#{bankName},</if>
+		<if test="bankNameChild!=null">bank_name_child=#{bankNameChild},</if>
+		<if test="bankUser!=null">bank_user=#{bankUser},</if>
+		<if test="bankNo!=null">bank_no=#{bankNo},</if>
+		<if test="status!=null">status=#{status},</if>
+		last_time=NOW()
+		WHERE id=#{id}
+	</update>
+	<select id="getPlatBankById" resultType="com.cmd.wallet.common.model.PlatBank">
+			SELECT * FROM t_plat_bank where id = #{id}
+	</select>
+	<delete id="delPlatConfigById">
+		delete  from  t_plat_bank where id = #{id}
+	</delete>
+</mapper>

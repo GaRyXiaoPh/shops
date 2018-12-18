@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.TransferAddressMapper">
+
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.TransferAddress" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_transfer_address(user_id, coin_name, address, `name`, address_tag, comment)
+        VALUES (#{userId}, #{coinName}, #{address}, #{name}, #{addressTag}, #{comment})
+    </insert>
+    <delete id="del">
+        DELETE FROM t_transfer_address WHERE id=#{id}
+    </delete>
+    <update id="updateTransferAddress" parameterType="com.cmd.wallet.common.model.TransferAddress">
+        UPDATE t_transfer_address
+        SET
+        <if test="coinName!=null">coin_name=#{coinName},</if>
+        <if test="address!=null">address=#{address},</if>
+        <if test="name!=null">`name`=#{name},</if>
+        <if test="addressTag!=null">`address_tag`=#{addressTag},</if>
+        last_time=NOW()
+        WHERE id=#{id}
+    </update>
+    <select id="getTransferAddressById" resultType="com.cmd.wallet.common.model.TransferAddress">
+        SELECT * FROM t_transfer_address WHERE id=#{id}
+    </select>
+    <select id="getTransferAddressList" resultType="com.cmd.wallet.common.model.TransferAddress">
+        SELECT * FROM t_transfer_address
+        WHERE 1=1
+        <if test="userId!=null">AND user_id=#{userId}</if>
+        <if test="coinName!=null">AND coin_name=#{coinName}</if>
+    </select>
+
+</mapper>

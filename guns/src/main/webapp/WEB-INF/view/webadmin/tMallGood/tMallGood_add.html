@@ -1,0 +1,43 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" underline="true"/>
+                            <#input id="userId" name="卖家ID" underline="true"/>
+                            <#input id="name" name="商品名称" underline="true"/>
+                            <#input id="detail" name="商品详情" underline="true"/>
+                            <#input id="price" name="商品价格" underline="true"/>
+                            <#input id="coinName" name="计价的币种" underline="true"/>
+                            <#input id="stock" name="库存" underline="true"/>
+                            <#input id="sellerWechat" name="卖家微信号
+" underline="true"/>
+                            <#input id="sellerMobile" name="卖家手机号"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="shopAddress" name="线下店铺地址" underline="true"/>
+                            <#input id="status" name="0:下架；1:上架" underline="true"/>
+                            <#input id="createTime" name="创建时间" underline="true"/>
+                            <#input id="updateTime" name="修改时间" underline="true"/>
+                            <#input id="isDelete" name="是否删除" underline="true"/>
+                            <#input id="salesVolume" name="销量" underline="true"/>
+                            <#input id="categoryId" name="分类ID" underline="true"/>
+                            <#input id="cny" name="人民币" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="TMallGoodInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="TMallGoodInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/webadmin/tMallGood/tMallGood_info.js"></script>
+@}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.MallShopMapper">
+
+
+    <update id="updateMallShop" >
+        UPDATE t_mall_shop
+        SET
+        <if test="shopAvatar != null"> shop_avatar=#{shopAvatar},</if>
+        <if test="shopName != null "> shop_name=#{shopName},</if>
+        <if test="shopIntro != null"> shop_intro=#{shopIntro}, </if>
+        <if test="shopGoodRept != null and shopGoodRept > 0"> shop_good_rept = #{shopGoodRept}, </if>
+        <if test="shopMiddleRept != null and shopMiddleRept > 0"> shop_middle_rept = #{shopMiddleRept}, </if>
+        <if test="shopBadRept != null and shopBadRept > 0"> shop_bad_rept = #{shopBadRept}, </if>
+        <if test="status != null"> status = #{status},</if>
+        update_time = NOW()
+        WHERE user_id = #{userId}
+    </update>
+
+
+</mapper>

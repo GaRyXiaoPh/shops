@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.CoinConfigMapper">
+    <!--cache type="com.cmd.exchange.common.utils.MybatisRedisCache"/-->
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.CoinConfig" flushCache="true">
+        INSERT INTO t_coin_config(`coin_name`, transfer_fee_rate, transfer_min_amount, transfer_max_amount, transfer_fee_static,transfer_fee_select, node_confirm_count,transfer_enable )
+        VALUES (#{coinName}, #{transferFeeRate}, #{transferMinAmount}, #{transferMaxAmount}, #{transferFeeStatic}, #{transferFeeSelect}, #{nodeConfirmCount},#{transferEnable})
+    </insert>
+
+    <update id="updateCoinConfig" parameterType="com.cmd.wallet.common.model.CoinConfig" flushCache="true">
+        UPDATE t_coin_config
+        SET
+        <if test="transferFeeRate!=null">
+            transfer_fee_rate=#{transferFeeRate},
+        </if>
+        <if test="transferMinAmount!=null">
+            transfer_min_amount=#{transferMinAmount},
+        </if>
+        <if test="transferMaxAmount!=null">
+            transfer_max_amount=#{transferMaxAmount},
+        </if>
+        <if test="transferFeeStatic!=null">
+            transfer_fee_static=#{transferFeeStatic},
+        </if>
+        <if test="transferFeeSelect!=null">
+            transfer_fee_select=#{transferFeeSelect},
+        </if>
+        <if test="nodeConfirmCount!=null">
+            node_confirm_count=#{nodeConfirmCount},
+        </if>
+        <if test="transferEnable!=null">
+            transfer_enable=#{transferEnable},
+        </if>
+        <if test="withdrawMinAmount!=null">
+            withdraw_min_amount=#{withdrawMinAmount},
+        </if>
+        <if test="withdrawMaxAmount!=null">
+            withdraw_max_amount=#{withdrawMaxAmount},
+        </if>
+        <if test="transferEnable!=null">
+            transfer_enable=#{transferEnable},
+        </if>
+        <if test="withdrawFeeRate!=null">
+            withdraw_fee_rate=#{withdrawFeeRate},
+        </if>
+        coin_name=#{coinName}
+        WHERE coin_name=#{coinName}
+    </update>
+
+    <delete id="delCoinConfig">
+        DELETE FROM t_coin_config WHERE coin_name=#{coinName}
+    </delete>
+
+    <select id="getCoinConfigByName" resultType="com.cmd.wallet.common.model.CoinConfig">
+        SELECT * FROM t_coin_config WHERE coin_name=#{coinName}
+    </select>
+
+    <select id="getCoinConfigList">
+        SELECT * FROM t_coin_config
+    </select>
+
+</mapper>

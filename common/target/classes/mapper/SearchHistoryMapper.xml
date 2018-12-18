@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cmd.wallet.common.mapper.SearchHistoryMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cmd.wallet.common.model.TSearchHistoryModel" id="searchHistoryMap">
+        <result property="id" column="id"/>
+        <result property="keyword" column="keyword"/>
+        <result property="from" column="from"/>
+        <result property="addTime" column="add_time"/>
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+    </resultMap>
+
+    <select id="queryObject" resultType="com.cmd.wallet.common.model.TSearchHistoryModel">
+		select * from t_mall_search_history where id = #{value}
+	</select>
+
+    <select id="queryList" resultMap="searchHistoryMap">
+        select a.*
+        from t_mall_search_history a
+        where a.user_id = #{userId}
+        order by a.add_time desc
+    </select>
+
+    <select id="queryTotal" resultType="int">
+		select count(*) from t_mall_search_history where a.user_id = #{userId}
+	</select>
+
+    <insert id="save" parameterType="com.cmd.wallet.common.model.TSearchHistoryModel" useGeneratedKeys="true" keyProperty="id">
+		insert into t_mall_search_history
+		(
+			`keyword`, 
+			`from`, 
+			`add_time`, 
+			`user_id`
+		)
+		values
+		(
+			#{keyword}, 
+			#{from}, 
+			#{addTime}, 
+			#{userId}
+		)
+	</insert>
+
+    <update id="update" parameterType="com.cmd.wallet.common.model.TSearchHistoryModel">
+        update t_mall_search_history
+        <set>
+            <if test="keyword != null">`keyword` = #{keyword},</if>
+            <if test="from != null">`from` = #{from},</if>
+            <if test="addTime != null">`add_time` = #{addTime},</if>
+            <if test="userId != null">`user_id` = #{userId}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+		delete from t_mall_search_history where id = #{value}
+	</delete>
+
+    <delete id="deleteBatch">
+        delete from t_mall_search_history where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

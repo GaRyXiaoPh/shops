@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmd.wallet.common.mapper.SendCoinMapper">
+
+    <resultMap type="com.cmd.wallet.common.model.SendCoin" id="sendCoin">
+        <result column="status" property="status"
+                typeHandler="com.cmd.wallet.common.enums.ValuedEnumTypeHandler"/>
+    </resultMap>
+
+
+    <insert id="add" parameterType="com.cmd.wallet.common.model.SendCoin">
+        INSERT INTO t_send_coin(user_id, received_user_id, address, coin_name, txid, amount, fee, send_time, status, `type`, comment)
+        VALUES (#{userId}, #{receivedUserId}, #{address}, #{coinName}, #{txid}, #{amount}, #{fee}, NOW(), #{status,typeHandler=com.cmd.wallet.common.enums.ValuedEnumTypeHandler}, #{type}, #{comment})
+    </insert>
+
+    <update id="updateTransferStatusById" >
+        UPDATE t_send_coin
+        SET
+        <if test="status!=null">status=#{status},</if>
+        <if test="txid!=null"> txid=#{txid},</if>
+        last_time=NOW()
+        WHERE id=#{id}
+    </update>
+
+    <select id="getTransfer" resultMap="sendCoin">
+        SELECT s.*,u.user_name  FROM t_send_coin s left join t_user u ON s.user_id = u.id
+        WHERE 1=1
+        <if test="userId!=null">AND s.user_id=#{userId}</if>
+        <if test="coinName !=null">AND s.coin_name=#{coinName}</if>
+        <if test="address !=null">AND s.address=#{address}</if>
+        <if test="status!=null">AND s.status=#{status}</if>
+        order by s.last_time DESC
+    </select>
+
+    <select id="getSendCoin" resultMap="sendCoin">
+        SELECT s.*,u.user_name  FROM t_send_coin s left join t_user u ON s.user_id = u.id
+        WHERE 1=1
+        <if test="userId!=null">AND s.user_id=#{userId}</if>
+        <if test="coinName !=null">AND s.coin_name=#{coinName}</if>
+        <if test="address !=null">AND s.address=#{address}</if>
+        <if test="arr!=null and arr.length>0">
+            AND s.`status` in
+            <foreach item="item" index="index" collection="arr" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        order by s.last_time DESC
+    </select>
+
+    <select id="getTransferUnconfirm" resultMap="sendCoin">
+        SELECT * FROM t_send_coin WHERE received_user_id IS NULL AND status=1 AND id>#{id} limit 100
+    </select>
+
+    <select id="getTransferById" resultMap="sendCoin">
+        select * from t_send_coin WHERE id=#{id}
+    </select>
+
+    <select id="lockTransferById" resultMap="sendCoin">
+        SELECT * FROM t_send_coin WHERE id=#{id} for update
+    </select>
+
+
+</mapper>
